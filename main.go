@@ -63,5 +63,5 @@ func main() {
 	})
 
 	fmt.Println(http.ListenAndServe(":3006", r))
-	fmt.Println("Rodando o servidor na porta 30005")
+	fmt.Println("Rodando o servidor na porta 30006")
 }

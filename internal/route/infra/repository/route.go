@@ -19,9 +19,9 @@ func (r *RouteRepositoryMySQL) Create(route *entity.Route)  (error) {
     routeSource, _ := json.Marshal(&route.Source)
     routeDestination, _ := json.Marshal(&route.Destination)
 	query := `INSERT INTO routes (name, source, destination) VALUES (?, ?, ?)`
-    _, err := r.db.Exec(query,route.Id, route.Name, routeSource, routeDestination)
-    if err!= nil {
-        return nil
+    _, err := r.db.Exec(query,route.Name, routeSource, routeDestination)
+    if err != nil {
+        return err
     }
 
     return nil
