@@ -1,0 +1,24 @@
+version: '3'
+
+
+services:
+  app:
+    build: .
+    ports: 
+      - "3006:3006"
+    volumes:
+      - .:/usr/src/app/
+  db:
+    image:  mysql:8.0.30-debian
+    command: --default-authentication-plugin=mysql_native_password
+
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldb_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: routes
+volumes:
+  mysqldb_data:
+    driver: local
